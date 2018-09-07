@@ -1,0 +1,19 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Alter
+       [dbo].[CollectIndexData] (Procedure)
+       [dbo].[ProcessQueueAll] (Procedure)
+
+** Supporting actions
+     Refresh
+       [dbo].[FillQueueAll] (Procedure)
+       [dbo].[StartWorker] (Procedure)

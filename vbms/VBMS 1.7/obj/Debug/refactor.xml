@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0">
+  <Operation Name="Rename Refactor" Key="a773a8be-6638-4df5-992d-1908eadc217e" ChangeDateTime="12/05/2017 12:05:10" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[FragmentationData].[analysis_complete]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[FragmentationData]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="analysis_completed" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="05b662bc-24c2-4ec3-9fe5-296612e30c65" ChangeDateTime="12/05/2017 12:08:14" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[FragmentationData].[status]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[FragmentationData]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="analysis_status" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b8493958-1f98-4118-806a-c5fd90e0ffc2" ChangeDateTime="12/05/2017 12:08:43" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[FragmentationData].[analysis_time_prognosis]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[FragmentationData]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="analysis_time_prognosis_ms" />
+  </Operation>
+</Operations>
