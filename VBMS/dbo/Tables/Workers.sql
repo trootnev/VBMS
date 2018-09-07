@@ -18,7 +18,7 @@
     [online_only]       BIT            DEFAULT 1 NOT NULL,
 	[check_backup_state]	BIT			DEFAULT 1 NOT NULL,
 	[check_ag_state]	BIT				DEFAULT 1 NOT NULL,
-	[ag_max_queue]		BIGINT			DEFAULT 20000000 NOT NULL,
+	[ag_max_queue]		BIGINT			DEFAULT 200000000 NOT NULL,
     [afterparty]        BIT            DEFAULT 1 NOT NULL,
     [add_stats_runtime] BIT            DEFAULT 1 NOT NULL,
     [totaltimemin]      BIGINT         NULL,

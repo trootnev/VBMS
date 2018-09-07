@@ -70,7 +70,7 @@ VALUES (SOURCE.[subsystem_id], SOURCE.[action_type_id], SOURCE.[subsystem_name],
 
 
 
-INSERT dbo.DbVersion (Version,DateInstalled) VALUES ('2.0.2.5 Alpha',getdate())
+INSERT dbo.DbVersion (Version,DateInstalled) VALUES ('2.0.2.5 Beta',getdate())
 GO
 
 UPDATE VBMS.dbo.Tasks 
@@ -82,6 +82,9 @@ and exit_code is null
 /*
 
 changelog:
+2.0.2.5b
+	- Increased ag_queue_size to 200000000
+
 2.0.2.5a
 	- FIX: 3 entries for a non-partitioned clustered index
 	- FIX: Clustered columnstore index statistics update tasks where generated which are not possible to execute.
