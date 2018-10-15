@@ -8,7 +8,7 @@
     [dbname_list]       NVARCHAR(500)  DEFAULT '' NOT NULL,
     [except_list]       BIT            DEFAULT 0 NOT NULL,
     [indexes]           BIT            DEFAULT 1 NOT NULL,
-	[frag_eval_time_limit_s]	INT	   NULL,
+	[frag_eval_time_limit_s]	INT	   NULL DEFAULT 7200,
 	[stats]             BIT            DEFAULT 1 NOT NULL,
     [stats_sample] NVARCHAR(50) NULL DEFAULT 'FULLSCAN', 
 	[checkall]          BIT            DEFAULT 1 NOT NULL,

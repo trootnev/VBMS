@@ -6,7 +6,7 @@
     @partition_n INT = NULL, 
     @subsystem_id INT = NULL, 
     @action_type_id INT = NULL,
-	@worker_name nvarchar(255) NULL
+	@worker_name nvarchar(255) = NULL
 AS
 
 IF @entryid is not null 
