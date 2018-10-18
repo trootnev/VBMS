@@ -9,10 +9,10 @@ Author: Oleg Trutnev otrutnev@microsoft.com
 		Arseny Birukov arsbir@microsoft.com
 
 Процедура оценивает объем свободного места, доступный для журнала транзакций
-ВАЖНО: при использовании маунт пойнтов процедура ведет себя некорректно.
+
 
 The procedure estimates the free space available for the transaction log
-IMPORTANT: the result is wrong when mount points are used.
+
 */
 
 

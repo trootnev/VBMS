@@ -1,4 +1,10 @@
-﻿DECLARE @Ops TABLE ([subsystem_id] int, [action_type_id]int, [subsystem_name] nvarchar(255), [action_type_name] nvarchar(255))
+﻿-- THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE PROVIDED "AS IS" WITHOUT
+--WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+--LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS
+--FOR A PARTICULAR PURPOSE.
+
+
+DECLARE @Ops TABLE ([subsystem_id] int, [action_type_id]int, [subsystem_name] nvarchar(255), [action_type_name] nvarchar(255))
 DECLARE @Params TABLE ([parameter] nvarchar(50), [string_value] nvarchar(150), [int_value] BIGINT, [float_value] FLOAT (53), [description] NVARCHAR (MAX) )
 
 INSERT @Ops ([subsystem_id], [action_type_id], [subsystem_name], [action_type_name]) VALUES (0, 1, N'Queue Generation', N'Generation of tasks for further execution')
