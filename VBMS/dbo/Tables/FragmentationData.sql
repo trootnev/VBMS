@@ -27,7 +27,7 @@
     [exit_message] NVARCHAR(4000) NULL, 
     [analysis_batch_id] UNIQUEIDENTIFIER NULL, 
     [time_factor] FLOAT NULL, 
-    [volume_mount_point] NVARCHAR(255) NULL, 
+    [dataspace_name] NVARCHAR(255) NULL, 
     CONSTRAINT [PK_FragmentationData] PRIMARY KEY CLUSTERED 
 (
 	[entry_id] ASC

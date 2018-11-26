@@ -64,10 +64,9 @@ SELECT @worker_name = worker_name
 FROM VBMS.dbo.WorkerSessions
 WHERE session_id = @@SPID
 
-SET LOCK_TIMEOUT '+CAST(@locktimeout as nvarchar(10))+';
-
-INSERT INTO VBMS.[dbo].[FragmentationData]
-           ([batch_id]
+SET LOCK_TIMEOUT '+CAST(@locktimeout as nvarchar(MAX))+';
+;
+WITH CTE ([batch_id]
            ,[collection_date]
            ,[database_id]
            ,[schema_id]
@@ -85,15 +84,14 @@ INSERT INTO VBMS.[dbo].[FragmentationData]
            ,[size_mb]
            ,[avg_fragmentation_in_percent]
 		   ,[analysis_status]
-		   ,[volume_mount_point])
-     
-SELECT '''+CAST(@batch as nvarchar(50))+''',
+		   ,dataspace_name) 
+		   AS( 
+SELECT '''+CAST(@batch as nvarchar(MAX))+''',
 GETDATE() as collection_date,
 	DB_ID() as database_id, 
 	t.schema_id, 
 	t.object_id, 
 	QUOTENAME(SCHEMA_NAME(t.schema_id))+''.''+QUOTENAME(OBJECT_NAME(t.object_id)) as object_name,
-	--per index data:
 	i.index_id,
 	i.name as index_name,
 	i.allow_page_locks,
@@ -107,7 +105,7 @@ GETDATE() as collection_date,
 	CAST(ps.used_page_count * 8 / 1024.00 AS DECIMAL(10,3)) as size_mb,
 	NULL as avg_fragmentation_in_percent,
 	0 as analysis_status,
-	vs.volume_mount_point
+	ds.name as DataSpaceName
 	
 FROM 
 	sys.tables t
@@ -115,8 +113,6 @@ FROM
 	INNER JOIN sys.partitions p ON p.object_id = t.object_id AND p.index_id = i.index_id
 	INNER JOIN sys.allocation_units au on p.partition_id = au.container_id and au.type =1
 	INNER JOIN sys.data_spaces ds on au.data_space_id = ds.data_space_id
-	INNER JOIN sys.database_files dbf on dbf.data_space_id = ds.data_space_id
-	CROSS APPLY sys.dm_os_volume_stats(DB_ID(),dbf.file_id) vs
 	LEFT OUTER JOIN sys.dm_db_partition_stats ps on ps.object_id = t.object_id AND ps.index_id = i.index_id AND ps.partition_number = p.partition_number
 	LEFT OUTER JOIN sys.dm_db_index_usage_stats ius ON ius.database_id = DB_ID() AND ius.index_id = i.index_id AND ius.object_id = i.object_id
 	LEFT OUTER JOIN
@@ -150,8 +146,32 @@ WHERE
 			AND (bl.partition_n = p.partition_number or bl.partition_n is null)
 			AND (bl.worker_name = @worker_name or worker_name is null)
 			AND bl.enabled = 1)
-	and ps.used_page_count > '+ CAST(@index_minsize /8*1024 as nvarchar(20)) 
-EXEC(@SQL)
-
+			)
+		INSERT INTO VBMS.[dbo].[FragmentationData]
+           ([batch_id]
+           ,[collection_date]
+           ,[database_id]
+           ,[schema_id]
+           ,[object_id]
+           ,[object_name]
+           ,[index_id]
+           ,[index_name]
+           ,[allow_page_locks]
+           ,[legacy_col_count]
+           ,[xml_col_count]
+           ,[user_scans]
+           ,[partition_count]
+           ,[partition_number]
+           ,[row_count]
+           ,[size_mb]
+           ,[avg_fragmentation_in_percent]
+		   ,[analysis_status]
+		   ,dataspace_name)
+ (SELECT *
+ FROM CTE
+  WHERE 
+	size_mb > '+ CAST(@index_minsize as nvarchar(MAX)) +')'
+	
+EXEC (@SQL)
 
 

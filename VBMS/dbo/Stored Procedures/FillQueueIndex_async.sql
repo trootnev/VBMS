@@ -101,7 +101,7 @@ CREATE TABLE #partitions
 	object_name nvarchar(4000),
 	index_id int,
 	index_name nvarchar(4000),
-	volume_mount_point nvarchar(255),
+	dataspace_name nvarchar(255),
 	allow_page_locks bit,
 	legacy_col_count int,
 	xml_col_count int,
@@ -121,7 +121,7 @@ object_id,
 object_name,
 index_id,
 index_name,
-volume_mount_point,
+dataspace_name,
 allow_page_locks,
 legacy_col_count,
 xml_col_count,
@@ -161,7 +161,7 @@ INSERT dbo.Tasks (
 	,rowcnt
 	,size_mb
 	,[priority]
-	,volume_mount_point
+	,dataspace_name
 )
 SELECT
 	@batch,
@@ -181,7 +181,7 @@ SELECT
 	t.row_count,
 	t.size_mb,
 	CASE WHEN ISNULL(pt.exit_code,1) <> 1 THEN 2 ELSE 1 END --Если предыдущий таск завершился с ошибкой понижаем этму приоритет
-	,t.volume_mount_point
+	,t.dataspace_name
 FROM
 	(
 		SELECT

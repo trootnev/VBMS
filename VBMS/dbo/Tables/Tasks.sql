@@ -28,7 +28,7 @@
     [worker_name]     NVARCHAR (255)    NULL,
     [execution_id]  UNIQUEIDENTIFIER NULL,
     [priority] INT NULL, 
-    [volume_mount_point] NVARCHAR(255) NULL, 
+    [dataspace_name] NVARCHAR(255) NULL, 
     CONSTRAINT [PK_TasksHistory] PRIMARY KEY CLUSTERED ([entry_id] ASC),
     CONSTRAINT [FK_Tasks_OperationTypes] FOREIGN KEY ([subsystem_id], [action_type_id]) REFERENCES [dbo].[OperationTypes] ([subsystem_id], [action_type_id])
 );

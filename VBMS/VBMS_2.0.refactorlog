@@ -21,4 +21,32 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="analysis_time_prognosis_ms" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="bd16e7c3-9f81-4171-9b30-518f88993b84" ChangeDateTime="11/21/2018 07:06:50">
+    <Property Name="ElementName" Value="[dbo].[Tasks].[command]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Tasks]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="bracadabra" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="bd34301b-1e7d-4d8c-b590-326ac2aa07ec" ChangeDateTime="11/21/2018 07:07:48">
+    <Property Name="ElementName" Value="[dbo].[Tasks].[bracadabra]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Tasks]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="command" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d1d42d07-3f7a-4650-80f1-c2b175e50e5b" ChangeDateTime="11/26/2018 11:45:46">
+    <Property Name="ElementName" Value="[dbo].[FragmentationData].[volume_mount_point]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[FragmentationData]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="dataspace_name" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e8490e19-dd2d-44a0-a840-7344ecba3e3c" ChangeDateTime="11/26/2018 12:19:39">
+    <Property Name="ElementName" Value="[dbo].[Tasks].[volume_mount_point]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Tasks]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="dataspace_name" />
+  </Operation>
 </Operations>

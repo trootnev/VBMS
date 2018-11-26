@@ -76,7 +76,7 @@ VALUES (SOURCE.[subsystem_id], SOURCE.[action_type_id], SOURCE.[subsystem_name],
 
 
 
-INSERT dbo.DbVersion (Version,DateInstalled) VALUES ('2.0.2.5 Beta',getdate())
+INSERT dbo.DbVersion (Version,DateInstalled) VALUES ('2.0.2.6 alpha',getdate())
 GO
 
 UPDATE VBMS.dbo.Tasks 
