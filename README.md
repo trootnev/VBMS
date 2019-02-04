@@ -43,6 +43,7 @@ Database name is VBMS (Value Based Maintenance System – because system evaluat
 +	Tasks generators (FillQueueAll)
 +	Workers (StartWorker)
 +	Killers (KillWorkers)
+
 Tasks generation can be executed before maintenance time as it probably may not interrupt normal work. Needs to be tested on each solution if implied performance impact is acceptable.
 
 
